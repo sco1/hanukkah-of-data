@@ -9,6 +9,8 @@ homepage = "https://hanukkah.bluebird.sh/"
 repository = "https://github.com/sco1/hanukkah-of-data"
 packages = [{include="helpers"}]
 
+[tool.poetry.scripts]
+hod-init = "helpers.init_puzzle:main"
 
 [tool.poetry.dependencies]
 python = "^3.11"
