@@ -3,6 +3,8 @@ import string
 import typing as t
 from pathlib import Path
 
+from helpers.utils import fmt_phone
+
 BUTTON_MAP = str.maketrans(string.ascii_lowercase, "22233344455566677778889999")
 
 
@@ -32,19 +34,11 @@ def get_customer_info(db_path: Path) -> list[tuple[str, str]]:
     return info_pairs
 
 
-def _fmt_phone(phone: str) -> str:
-    """Format the provided phone number as a phone number with dashes."""
-    if len(phone) != 10:
-        raise ValueError(f"Invalid length phone number provided. Expected: 10, got: {len(phone)}.")
-
-    return f"{phone[:3]}-{phone[3:6]}-{phone[6::]}"
-
-
 def find_matching_phone(info_pairs: t.Iterable[tuple[str, str]]) -> str:
     """Find the first customer whose last name maps to their phone number."""
     for last_name, phone in info_pairs:
         if last_name.lower().translate(BUTTON_MAP) == phone:
-            return _fmt_phone(phone)
+            return fmt_phone(phone)
 
     raise ValueError("Could not locate a telephone number that matches the customer's last name.")
 

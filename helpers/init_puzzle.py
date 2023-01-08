@@ -18,7 +18,6 @@ if __name__ == "__main__":
 PY_FILES = (
     "__init__.py",
     ("hod_{}_day{:02d}.py", PY_BASE),
-    "test_day{:02d}.py",
 )
 
 
