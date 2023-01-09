@@ -52,5 +52,9 @@ def locate_contractor(
 if __name__ == "__main__":
     dataset = Path(__file__).parent.parent / Path("Dataset/noahs.sqlite")
 
+    # What we know about the mystery person:
+    #    * Initials are JD
+    #    * Shopped in 2017
+    #    * Bought cleaning supplies (rug cleaner?)
     info = get_customer_info(dataset)
     print(f"Answer: {locate_contractor(info)}")

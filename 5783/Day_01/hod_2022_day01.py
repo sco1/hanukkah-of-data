@@ -45,6 +45,8 @@ def find_matching_phone(info_pairs: t.Iterable[tuple[str, str]]) -> str:
 
 if __name__ == "__main__":
     dataset = Path(__file__).parent.parent / Path("Dataset/noahs.sqlite")
-    info_pairs = get_customer_info(dataset)
 
+    # What we know about the mystery person:
+    #    * Last name maps to their phone number if you type it with phone digits
+    info_pairs = get_customer_info(dataset)
     print(f"Answer: {find_matching_phone(info_pairs)}")
