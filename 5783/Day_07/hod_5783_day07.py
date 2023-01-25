@@ -52,7 +52,7 @@ def find_close_purchases(
             )
             INNER JOIN orders_items ON orders.orderid = orders_items.orderid
             INNER JOIN products ON orders_items.sku = products.sku
-                """,
+        """,
         {
             "filter_id": collision_customer_id,
             "minute_threshold": minute_tolerance,
