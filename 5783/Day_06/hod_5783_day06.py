@@ -15,6 +15,7 @@ def find_matching_customers(db_path: Path, n_most: int = 1) -> list[str]:
         SELECT
             customers.name,
             customers.phone,
+            customers.customerid,
             SUM(orders_items.qty * (orders_items.unit_price - products.wholesale_cost)) as total_saved
         FROM customers
             INNER JOIN orders ON customers.customerid = orders.customerid
