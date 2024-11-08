@@ -46,4 +46,4 @@ htmlcov
 .mypy_cache/
 
 # Datasets
-Dataset/
+dataset/

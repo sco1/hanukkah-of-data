@@ -3,27 +3,25 @@ ci:
 
 repos:
   - repo: https://github.com/psf/black
-    rev: 23.9.1
+    rev: 24.10.0
     hooks:
       - id: black
   - repo: https://github.com/pycqa/isort
-    rev: 5.12.0
+    rev: 5.13.2
     hooks:
       - id: isort
         name: isort
   - repo: https://github.com/pycqa/flake8
-    rev: 6.1.0
+    rev: 7.1.1
     hooks:
       - id: flake8
         additional_dependencies:
           - flake8-annotations
-          - flake8-bugbear
-          - flake8-docstrings
-          - flake8-fixme
-          - pep8-naming
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v5.0.0
     hooks:
+      - id: check-case-conflict
+      - id: check-json
       - id: check-merge-conflict
       - id: check-toml
       - id: check-yaml
@@ -36,16 +34,11 @@ repos:
       -  id: python-check-blanket-noqa
       -  id: python-check-blanket-type-ignore
       -  id: python-use-type-annotations
-  - repo: https://github.com/sco1/pre-commit-matlab
-    rev: v1.2.0
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.7.3
     hooks:
-      - id: matlab-reflow-comments
-        args: [--line-length=100]
+      - id: ruff
   - repo: https://github.com/sirosen/texthooks
-    rev: 0.5.0
+    rev: 0.6.7
     hooks:
       - id: fix-smartquotes
-  - repo: https://github.com/sco1/brie-commit
-    rev: v1.1.0
-    hooks:
-      - id: brie-commit

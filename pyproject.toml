@@ -1,39 +1,55 @@
-[tool.poetry]
+[project]
 name = "hannukahofdata"
 version = "1.0.0"
-description = "My solutions to the annual Hannukah of Data event"
-authors = ["sco1 <sco1.git@gmail.com>"]
+description = "My solutions to the annual Hannukah of Data event!"
+authors = [
+    {name = "sco1", email = "sco1.git@gmail.com"}
+]
+maintainers = [
+    {name = "sco1", email = "sco1.git@gmail.com"}
+]
 
 readme = "README.md"
-homepage = "https://hanukkah.bluebird.sh/"
-repository = "https://github.com/sco1/hanukkah-of-data"
-packages = [{include="helpers"}]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Typing :: Typed",
+]
 
-[tool.poetry.scripts]
+requires-python = ">=3.11"
+dependencies = [
+]
+
+[project.urls]
+Repository = "https://github.com/sco1/hanukkah-of-data"
+
+[project.scripts]
 hod-init = "helpers.init_puzzle:main"
 
-[tool.poetry.dependencies]
-python = "^3.11"
-
-[tool.poetry.dev-dependencies]
-black = "^22.10"
-flake8 = "^6.0"
-flake8-annotations = "^3.0"
-flake8-bugbear = "^23.1"
-flake8-docstrings = "^1.6"
-flake8-fixme = "^1.1"
-isort = "^5.10"
-mypy = "^0.991"
-pep8-naming = "^0.13"
-pre-commit = "^3.0"
-pytest = "^7.2"
-pytest-randomly = "^3.12"
+[tool.uv]
+dev-dependencies = [
+    "black~=24.10",
+    "flake8~=7.1",
+    "flake8-annotations~=3.1",
+    "isort~=5.13",
+    "mypy~=1.11",
+    "pre-commit~=4.0",
+    "pytest~=8.3",
+    "pytest-cov~=6.0",
+    "pytest-randomly~=3.15",
+    "ruff~=0.6",
+]
 
 [tool.black]
 line-length = 100
 
 [tool.isort]
 case_sensitive = true
+known_first_party = "hanukkah-of-data,tests"
 no_lines_before = "LOCALFOLDER"
 order_by_type = false
 profile = "black"
@@ -52,6 +68,9 @@ warn_return_any = true
 warn_unused_configs = true
 warn_unused_ignores = true
 
+[tool.hatch.build.targets.wheel]
+packages = ["helpers"]
+
 [build-system]
-requires = ["poetry-core>=1.2"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"

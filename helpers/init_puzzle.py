@@ -10,7 +10,7 @@ from pathlib import Path
 
 
 if __name__ == "__main__":
-    dataset = Path(__file__).parent.parent / Path("Dataset/noahs.sqlite")
+    dataset = Path(__file__).parent.parent / Path("dataset/noahs.sqlite")
 
     print(f"Answer: {...}")
 """
